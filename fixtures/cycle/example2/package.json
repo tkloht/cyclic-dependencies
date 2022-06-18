@@ -1,6 +1,6 @@
 {
   "name": "example2",
   "dependencies": {
-    "left-pad": "1.0.0"
+    "example1": "1.0.0"
   }
 }
