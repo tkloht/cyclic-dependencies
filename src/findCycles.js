@@ -7,8 +7,9 @@ function findCycles(graph) {
   while (queue.length > 0) {
     const current = queue.shift()
 
-    if (current.path.includes(current.name)) {
-      cycles.push([...current.path, current.name])
+    const index = current.path.indexOf(current.name)
+    if (index > -1) {
+      cycles.push([...current.path.slice(index), current.name])
     } else {
       for (const name of graph[current.name]) {
         queue = queue.filter((x) => x.name === current.name)
