@@ -44,7 +44,13 @@ describe("find workspace packages", () => {
     ].sort())
   })
 
-  it.todo("throws error if workspace definition is missing")
-  it.todo("throws error if no package")
-  it.todo("throws error if no package")
+  it("throws error if workspace definition is missing", async () => {
+    initFixture('missing-workspace')
+    await expect(findWorkspacePackages()).rejects.toEqual(Error("Missing workspace definition"))
+  })
+
+  it("throws error if no package", async () => {
+    initFixture('missing-root-package')
+    await expect(findWorkspacePackages()).rejects.toEqual(Error("Missing package.json in working directory"))
+  })
 })
