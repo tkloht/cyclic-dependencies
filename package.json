@@ -1,0 +1,18 @@
+{
+  "name": "workspace-cycles",
+  "version": "1.0.0",
+  "description": "detect cyclic dependencies in yarn workspaces",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --watch"
+  },
+  "type": "module",
+  "author": "Tobias Kloht",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^28.1.1"
+  },
+  "dependencies": {
+    "globby": "^13.1.2"
+  }
+}

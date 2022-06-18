@@ -1,0 +1,7 @@
+{
+  "name": "default",
+  "workspaces": [
+    "example1",
+    "example2"
+  ]
+}
