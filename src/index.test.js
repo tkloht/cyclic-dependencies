@@ -91,6 +91,15 @@ describe("findCycles", () => {
     expect(cycles).toStrictEqual([["example1", "example2", "example1"]])
   })
 
-  it.todo("finds larger cycle")
+  it("finds larger cycle", async () => {
+    initFixture("cycle-larger")
+    const workspaces = await findWorkspacePackages()
+    const graph = await buildPackageGraph(workspaces)
+    const cycles = await findCycles(graph)
+
+    expect(cycles).toStrictEqual([
+      ["eight", "nine", "one", "two", "three", "four", "five", "six", "seven", "eight"],
+    ])
+  })
   it.todo("finds multiple cycles")
 })
