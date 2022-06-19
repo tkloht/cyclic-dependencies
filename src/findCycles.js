@@ -1,21 +1,37 @@
+/* DFS with node coloring
+ * white: unvisited
+ * gray: currently visiting this node and its children
+ * black: already visited this node and all children
+ * if we investigate edge to gray node, it is a back edge -> cycle
+ */
+
 function findCycles(graph) {
-  const cycles = []
   let queue = Object.keys(graph)
     .sort()
     .map((name) => ({ name, path: [] }))
 
-  while (queue.length > 0) {
-    const current = queue.shift()
+  const nodes = Object.keys(graph).sort()
+  const colors = nodes.reduce((acc, current) => ({ ...acc, [current]: "white" }), {})
+  let cycles = []
 
-    const index = current.path.indexOf(current.name)
-    if (index > -1) {
-      cycles.push([...current.path.slice(index), current.name])
-    } else {
-      for (const name of graph[current.name]) {
-        queue = queue.filter((x) => x.name === current.name)
-        queue.unshift({ name, path: [...current.path, current.name] })
+  function visit(name, path = []) {
+    colors[name] = "gray"
+    const neighbours = graph[name]
+    for (const neighbour of neighbours) {
+      const color = colors[neighbour]
+      if (color === "white") {
+        visit(neighbour, [...path, name])
+      } else if (color === "gray") {
+        const index = path.indexOf(neighbour)
+        cycles.push([...path.slice(index), name, neighbour])
       }
     }
+    colors[name] = "black"
+  }
+
+  while (nodes.some((x) => colors[x] === "white")) {
+    const whiteNode = nodes.find((x) => colors[x] === "white")
+    visit(whiteNode)
   }
 
   return cycles
