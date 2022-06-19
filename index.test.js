@@ -1,7 +1,7 @@
 import initFixture from "./testutils/readFixture"
-import findWorkspacePackages from "./findWorkspacePackages"
-import buildPackageGraph from "./buildPackageGraph"
-import findCycles from "./findCycles"
+import findWorkspacePackages from "./src/findWorkspacePackages"
+import buildPackageGraph from "./src/buildPackageGraph"
+import findCycles from "./src/findCycles"
 
 describe("findWorkspacePackages", () => {
   it("finds workspace packages when explicitly declared", async () => {

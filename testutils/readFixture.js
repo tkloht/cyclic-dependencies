@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 function initFixture(name) {
-  const fixtureDir = path.join(__dirname, "..", "..", "fixtures", name)
+  const fixtureDir = path.join(__dirname, "..", "fixtures", name)
   process.chdir(fixtureDir)
 }
 

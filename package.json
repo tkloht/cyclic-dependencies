@@ -1,8 +1,11 @@
 {
   "name": "workspace-cycles",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.0",
   "description": "detect cyclic dependencies in yarn workspaces",
   "main": "src/index.js",
+  "files": [
+    "src"
+  ],
   "bin": {
     "workspace-cycles": "bin/workspace-cycles.js"
   },
