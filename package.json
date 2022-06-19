@@ -2,7 +2,10 @@
   "name": "workspace-cycles",
   "version": "1.0.0",
   "description": "detect cyclic dependencies in yarn workspaces",
-  "main": "index.js",
+  "main": "src/index.js",
+  "bin": {
+    "workspace-cycles": "bin/workspace-cycles.js"
+  },
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --watch"
   },
