@@ -101,6 +101,7 @@ describe("findCycles", () => {
       ["eight", "nine", "one", "two", "three", "four", "five", "six", "seven", "eight"],
     ])
   })
+
   it("finds small cycle in larger project", async () => {
     initFixture("cycle-subset")
     const workspaces = await findWorkspacePackages()
@@ -109,5 +110,17 @@ describe("findCycles", () => {
 
     expect(cycles).toStrictEqual([["d", "e", "f", "d"]])
   })
-  it.todo("finds multiple cycles")
+
+  it("finds multiple cycles", async () => {
+    initFixture("cycle-multi")
+    const workspaces = await findWorkspacePackages()
+    const graph = await buildPackageGraph(workspaces)
+
+    const cycles = await findCycles(graph)
+
+    expect(cycles).toStrictEqual([
+      ["a", "b", "c", "a"],
+      ["d", "e", "f", "g", "d"],
+    ])
+  })
 })
