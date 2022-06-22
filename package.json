@@ -1,13 +1,13 @@
 {
-  "name": "workspace-cycles",
-  "version": "1.0.0-alpha.1",
+  "name": "cyclic-dependencies",
+  "version": "1.0.0",
   "description": "detect cyclic dependencies in yarn workspaces",
   "main": "src/index.js",
   "files": [
     "src"
   ],
   "bin": {
-    "workspace-cycles": "bin/workspace-cycles.js"
+    "cyclic-dependencies": "bin/cyclic-dependencies.js"
   },
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
