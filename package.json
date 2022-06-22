@@ -2,6 +2,11 @@
   "name": "cyclic-dependencies",
   "version": "1.0.0",
   "description": "detect cyclic dependencies in yarn workspaces",
+  "homepage": "https://github.com/tkloht/cyclic-dependencies",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tkloht/cyclic-dependencies.git"
+  },
   "main": "src/index.js",
   "files": [
     "src"
