@@ -1,6 +1,6 @@
 {
   "name": "cyclic-dependencies",
-  "version": "1.0.1",
+  "version": "1.1.0-beta",
   "description": "detect cyclic dependencies in yarn workspaces",
   "homepage": "https://github.com/tkloht/cyclic-dependencies",
   "repository": {
