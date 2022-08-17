@@ -11,8 +11,8 @@ async function readWorkspaces() {
     throw new Error("Missing package.json in working directory")
   }
 
-  const rootPackage = await fs.readFile("./package.json")
-  let { workspaces } = JSON.parse(rootPackage.toString())
+  const rootPackage = await fs.readFile("./package.json", "utf8")
+  let { workspaces } = JSON.parse(rootPackage)
 
   if (!workspaces) {
     try {
