@@ -1,0 +1,6 @@
+{
+  "name": "frontend1",
+  "dependencies": {
+    "left-pad": "1.0.0"
+  }
+}
