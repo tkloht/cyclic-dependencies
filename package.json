@@ -26,6 +26,7 @@
     "prettier": "^2.7.1"
   },
   "dependencies": {
-    "globby": "^13.1.2"
+    "globby": "^13.1.2",
+    "js-yaml": "^4.1.0"
   }
 }
