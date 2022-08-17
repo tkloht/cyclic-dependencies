@@ -2,6 +2,7 @@ import { globby } from "globby"
 
 import fs from "fs/promises"
 import path from "path"
+import yaml from "js-yaml"
 
 async function readWorkspaces() {
   try {
@@ -11,10 +12,16 @@ async function readWorkspaces() {
   }
 
   const rootPackage = await fs.readFile("./package.json")
-  const { workspaces } = JSON.parse(rootPackage.toString())
+  let { workspaces } = JSON.parse(rootPackage.toString())
 
   if (!workspaces) {
-    throw new Error("Missing workspace definition")
+    try {
+      const pnpmWorkspaceFile = await fs.readFile("./pnpm-workspace.yaml", "utf8")
+      const pnpmWorkspaceDefinition = yaml.load(pnpmWorkspaceFile)
+      workspaces = pnpmWorkspaceDefinition.packages
+    } catch (e) {
+      throw new Error("Missing workspace definition")
+    }
   }
 
   const workspacePackages = await globby(
