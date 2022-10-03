@@ -1,6 +1,6 @@
 # cyclic-dependencies
 
-> Find cyclic dependencies in your yarn/npm workspaces.
+> Find cyclic dependencies in your yarn/npm/pnpm workspaces.
 
 ## Usage example
 
@@ -34,10 +34,6 @@ This project uses pnpm to manage dependencies.
 At this time it has no build step.
 
 To run tests with jest: `pnpm test`
-
-## Limitations
-
-- pnpm style workspaces are not yet supported.
 
 ## License
 
