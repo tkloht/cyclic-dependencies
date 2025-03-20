@@ -31,7 +31,7 @@ type testCase struct {
 var testCases = []testCase{
 	{"default", []string{"example1/package.json", "example2/package.json"}},
 	{"star", []string{"packages/example1/package.json", "packages/example2/package.json"}},
-	// {"pnpm-doublestar", []string{"packages/backend/one/package.json", "packages/backend/two/package.json", "packages/frontend/one/package.json", "packages/frontend/two/package.json"}},
+	{"pnpm-doublestar", []string{"packages/backend/one/package.json", "packages/backend/two/package.json", "packages/frontend/one/package.json", "packages/frontend/two/package.json"}},
 }
 
 
